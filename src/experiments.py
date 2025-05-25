@@ -6,36 +6,41 @@ from .visual import (
     plot_entropy,
     plot_delta_vs_time,
     scatter_entropy_vs_delta,
-)                       # 如果 visual.py 里实现了 _finalize 就把它也加进来
-import matplotlib.pyplot as plt
-import pathlib, os
+)
+from .utils import new_run_dir, save_config, save_metrics
 
-# --- 可选：简单保存 PNG 的小工具 ---
-def _finalize(fname: str):
-    pathlib.Path("outputs").mkdir(exist_ok=True)
+import matplotlib.pyplot as plt
+import os, pathlib
+
+# ---------- 帮助函数：保存并关闭图 ----------
+def _save_fig(run_dir, fname):
     plt.tight_layout()
-    plt.savefig(os.path.join("outputs", f"{fname}.png"), dpi=150)
+    plt.savefig(run_dir / "figs" / f"{fname}.png", dpi=150)
     plt.close()
 
 def run_single(seed=42, **kwargs):
+    # 1) 构建配置 & 生成 run 目录
     cfg = SimConfig(seed=seed, **kwargs)
+    run_dir = new_run_dir()
+    save_config(cfg, run_dir)
+
+    # 2) 运行仿真
     sim = TimeSimulator(cfg)
-    entropy, delta, _ = sim.run()   # <-- 这里就拿到两个 ndarray
+    entropy, delta, _ = sim.run()
 
-    # 画图 + 保存
-    plot_entropy(entropy)
-    _finalize("entropy_curve")
-
-    plot_delta_vs_time(delta)
-    _finalize("delta_curve")
-
+    # 3) 绘图
+    plot_entropy(entropy)             ; _save_fig(run_dir, "entropy")
+    plot_delta_vs_time(delta)         ; _save_fig(run_dir, "delta")
     scatter_entropy_vs_delta(entropy, delta)
-    _finalize("entropy_vs_delta")
+    _save_fig(run_dir, "corr")
 
-    # Pearson 相关
+    # 4) 统计 + 保存
     corr = pearson_corr(delta, entropy)
+    save_metrics(entropy, delta, corr, run_dir)
+
+    # 5) 控制台简报
+    print(f"[RUN SAVED] {run_dir}")
     print(f"Pearson r = {corr['pearson_r']:.3f}  (p={corr['p_value']:.4g})")
 
 if __name__ == "__main__":
     run_single()
-
