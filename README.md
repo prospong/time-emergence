@@ -25,84 +25,36 @@ popular-science accounts of the thermodynamic arrow.
 
 | Symbol | Meaning |
 |--------|---------|
-| `$X_t \in \mathbb{R}^{N\times D}$` | State matrix of all *N* agents at time *t* |
-| `$\lvert\Delta S_t\rvert = \lVert X_t - X_{t-1}\rVert_2$` | Mean L2-magnitude of state change (“information-flow speed”) |
-| `$H(t)$` | Shannon entropy of the empirical state distribution |
-| `$\rho(\cdot,\cdot)$` | Pearson correlation (or Spearman $\rho_s$) |
-
-### Conjecture 1 – *Information-Emergence-of-Time Conjecture (IETC)*  
-
-> **Plain idea:**  
-> If an information field evolves by probabilistic state transitions, the
-> *emergent time quantity*—defined via Shannon entropy—should never
-> decrease; it should rise (or at least stay flat) as the state sequence
-> grows.
-
-**Formal notation**
-
-* Let the information field be a finite set of states  
-  \[
-     \mathcal I = \{\, i_1,i_2,\dots \,\}.
-  \]
-* Let  
-  \[
-    f:\mathcal I \times \mathcal I \;\longrightarrow\;[0,1]
-  \]
-  be the state–transition kernel
-  (the probability of jumping from state \(i\) to state \(j\)).
-* Consider a trajectory (state sequence)
-  \[
-    S = (i_1, i_2, \dots, i_n), \qquad i_k \in \mathcal I .
-  \]
-* Define the **emergent-time functional**
-  \[
-    T(S) \;=\; H(S)\;-\;H(i_1),
-  \]
-  where \(H(\cdot)\) is Shannon entropy  
-  \( H(X) \;=\; -\sum_{x\in X} p(x)\,\log p(x)\).
-
-**IETC** claims that  
-\[
-    n \longmapsto T(S)
-\]
-is **non-decreasing** (or at least non-negative/constant).  
-If that holds, we say the sequence exhibits an “emergent time
-phenomenon.”
+| $X_t \in \mathbb{R}^{N \times D}$ | State matrix of all $N$ agents at step $t$ (each row length $D$) |
+| $\lVert\!\Delta S_t\!\rVert \;=\; \lVert X_t - X_{t-1}\rVert_2$ | Mean L2-magnitude of the state change (“information-flow speed”) |
+| $H(t)$ | Shannon entropy of the empirical state distribution |
+| $\rho(\cdot,\cdot)$ | Pearson correlation (alternatively Spearman $\rho_s$) |
 
 ---
 
-### Conjecture 2 – *Multidimensional-Information–Time-Perception Conjecture (MITPC)*  
+### Conjecture&nbsp;H1 – *Information-Emergence-of-Time (IETC)*  
 
-> **Plain idea:**  
-> In a high-dimensional information space, the local *intensity* of
-> information flow determines the rate at which an observer perceives the
-> passage of linear time.
+> The global entropy of a closed information field never decreases,
+> creating an intrinsic arrow of time.
 
-**Formal notation**
-
-* Consider a \(D\)-dimensional information space
-  \[
-    \mathcal I^{(D)} \;=\; \bigl\{\, (x_1,x_2,\dots,x_D)\in\mathbb R^D
-    \;\big\vert\; D \ge 3 \bigr\}.
-  \]
-* Every information state \(\mathbf x\in\mathcal I^{(D)}\) can interact
-  with others through the transition field \(f(\mathbf x,t)\).
-* Let
-  \[
-    g:\mathcal I^{(D)} \;\longrightarrow\; \mathbb T
-  \]
-  be a mapping from the high-dimensional state to a **1-D perceived
-  timeline** \(\mathbb T\).
-* MITPC hypothesises
-  \[
-    \frac{d}{dt}\,g(\mathbf x(t))
-    \;\;\propto\;\;
-    \bigl\lVert \nabla_{\mathbf x} f(\mathbf x,t) \bigr\rVert ,
-  \]
-  i.e.\ the *perceived* time rate is proportional to the norm of the
-  information-flow gradient in the \(D\)-space.
+$$
+\frac{dH}{dt} \;\ge\; 0 \qquad (\forall\, t \ge 0)
+$$
 
 ---
+
+### Conjecture&nbsp;H2 – *Multidimensional Information–Time Perception (MITPC)*  
+
+> A larger instantaneous information-flow speed implies a larger entropy;
+> i.e. the two variables are positively correlated.
+
+$$
+\rho\!\bigl(\lVert\!\Delta S_t\!\rVert,\; H(t)\bigr) \;>\; 0
+$$
+
+*(If a monotone rather than strictly linear relation is expected,  
+replace $\rho$ with Spearman’s $\rho_s$ or use mutual information.)*
+
 
 
 ### Why Test Them Empirically?  
