@@ -25,36 +25,35 @@ popular-science accounts of the thermodynamic arrow.
 
 | Symbol | Meaning |
 |--------|---------|
-| \( X_t \in \mathbb{R}^{N\times D} \) | State matrix of all \(N\) agents at step \(t\) (each row length \(D\)) |
-| \( \lvert \Delta S_t \rvert = \bigl\lVert X_t - X_{t-1}\bigr\rVert_2 \) | Mean L2 - magnitude of the state change (“information-flow speed”) |
-| \( H(t) \) | Shannon entropy of the empirical state distribution at time \(t\) |
-| \( \rho(\cdot,\cdot) \) | Pearson correlation (or Spearman \( \rho_s \)) |
+| `$X_t \in \mathbb{R}^{N\times D}$` | State matrix of all $N$ agents at step $t$ (each row length $D$) |
+| `$\lvert \Delta S_t \rvert = \lVert X_t - X_{t-1}\rVert_2$` | Mean L2-magnitude of the state change (“information-flow speed”) |
+| `$H(t)$` | Shannon entropy of the empirical state distribution at time $t$ |
+| `$\rho(\cdot,\cdot)$` | Pearson correlation (or Spearman $\rho_s$) |
 
 ---
 
-#### Conjecture H1 – *Entropy Arrow*
+#### Conjecture H1 – *Entropy Arrow*  
 
 > The global entropy of a closed information field never decreases;  
 > time acts as a one-way arrow.
 
-\[
-\frac{dH}{dt} \;\ge\; 0 \qquad\text{for all } t \ge 0
-\]
+$$
+\frac{dH}{dt} \;\ge\; 0 \qquad (\forall\, t \ge 0)
+$$
 
 ---
 
-#### Conjecture H2 – *Speed-of-Time Correlation*
+#### Conjecture H2 – *Speed-of-Time Correlation*  
 
 > A larger instantaneous information-flow speed implies a larger entropy;  
 > the two variables are positively correlated.
 
-\[
+$$
 \rho\!\bigl(\lvert\Delta S_t\rvert,\; H(t)\bigr) \;>\; 0
-\]
+$$
 
 *(If one only expects a monotone—rather than linear—relation,  
-replace \( \rho \) with Spearman’s \( \rho_s \) or use mutual information.)*
-
+replace $\rho$ with Spearman’s $\rho_s$ or use mutual information.)*
 
 
 ### Why Test Them Empirically?  
