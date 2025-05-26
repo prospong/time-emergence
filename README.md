@@ -1,5 +1,89 @@
 # time-emergence
 Experiments about "TIME" itself
+# 信息场时间研究 README  
+*—— 记录从问题提出、猜想公式到实验设计的全过程 *
+
+---
+
+## 0 研究背景（原文摘录）
+
+> 1. **TIME 没有方向**：过去、现在、未来同时存在，这也是人可以回忆过去、感知现在、想象未来的原因。  
+> 2. **TIME 真的存在吗？** 是否只是人类或信息系统的感知产物？  
+> 3. 我们希望证明：时间不是一条线，而是一个 **3D 球**，具有各个方向。
+
+---
+
+## 1 两条时间猜想（原文公式）
+
+| 符号 | 说明 |
+|------|------|
+| $\mathcal I$ | 多维信息状态集合 |
+| $f:\mathcal I\times\mathcal I\to[0,1]$ | 状态转移概率 |
+| $S=(i_1,i_2,\dots,i_n)$ | 状态序列 ($i_k\in\mathcal I$) |
+| $H(\cdot)$ | 香农熵 |
+
+### 猜想一 —— 信息涌现时间猜想 (IETC)
+
+> 若 $T(S)=H(S)-H(i_1)$ 随序列长度 $n$ **单调递增或保持稳定**，则认为序列 $S$ 中出现了“涌现时间现象”。
+
+$$
+T(S)=H(S)-H(i_1),\qquad
+H(X)=-\sum_{x\in X}p(x)\log p(x)
+$$
+
+### 猜想二 —— 多维信息与时间感知猜想 (MITPC)
+
+> 对于高维信息空间 $\mathcal I^{(D)}$（$D\ge3$），信息流速决定感知时间速率：
+
+$$
+\mathcal I^{(D)}=\{(x_1,\dots,x_D)\,|\,x_i\in\mathbb R\},\quad
+g:\mathcal I^{(D)}\to\mathbb T
+$$
+
+$$
+\frac{d\,g(\mathbf x)}{dt}\;\propto\;
+\bigl\lVert\nabla_{\mathbf x}f(\mathbf x,t)\bigr\rVert
+$$
+
+---
+
+## 2 实验设计原则（原文摘抄）
+
+1. **广覆盖** — 多图拓扑、多噪声级别、多维度、多步长，目标是让 99 % 实验都无法支持猜想。  
+2. **理论反例** — 如果熵极限上界 $\delta S$ 无法驱动单调熵增，即可反证猜想。  
+3. **统计显著** — 每组跑几十个随机种子，考察 95 % 置信区间是否跨 0。  
+
+---
+
+## 3 实验实施步骤（总览）
+
+| 阶段 | 内容 |
+|------|------|
+| **P₀** | 烟雾测试：最小元胞自动机，验证代码通道 |
+| **P₁** | 单配置检验 H1/H2：香农熵 & $\lVert\Delta S\rVert$ |
+| **P₂** | 引入三种拓扑 + 注意力耦合 |
+| **P₃** | 6 × 5 矩阵：低/高噪声 + 静态/动态图 |
+| **P₄** | 新熵指标（Rényi、Tsallis）+ 互信息 |
+| **P₅** | 36 配置 × 10 seed 广覆盖 |
+| **P₆** | 超长步长 (10 k – 50 k) 与自适应采样 |
+
+---
+
+## 4 主要代码文件（简述）
+
+| 文件 | 功能 |
+|------|------|
+| `experiment_extend_6.py` | 单次运行：输出 Shannon/Rényi/Tsallis 熵、Pearson/Spearman/MI |
+| `metrics_extras.py` | Rényi、Tsallis、互信息计算辅助 |
+| `run_grid6.py` | 36 配置 × 10 seed 批量脚本 |
+| `analyze_grid6.py` | 汇总生成 `pearson_ci.png`、互信息热图等 |
+| `grid6_runs/` | 每组 `summary.json`（均值 + CI） |
+
+---
+
+> *以上内容均为对话开端部分的**原句/公式/设计原则**的中文摘录与排版，仅做 Markdown
+> 格式化与 `$···$` 数学公式处理，便于直接上传 GitHub。*
+
 ## Background & Rationale  
 
 ### Why “Time” in Information Fields?  
