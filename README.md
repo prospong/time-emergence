@@ -21,6 +21,49 @@ static entropy and dynamical “flow of time” concepts.  They also echo
 folk intuitions (“more happening ⇒ time feels faster”) and some  
 popular-science accounts of the thermodynamic arrow.
 
+### Formal Statement of the Two Conjectures  
+
+| Symbol | Definition |
+|--------|------------|
+| \(X_t \in \mathbb{R}^{N\times D}\) | concatenated state-matrix of all \(N\) agents at discrete time step \(t\); each row has \(D\) real features |
+| \(|\Delta S_t| \;\equiv\;\bigl\lVert X_t - X_{t-1}\bigr\rVert_2\) | mean Euclidean magnitude of state change at step \(t\) (proxy for “information-flow speed”) |
+| \(H(t)\) | Shannon entropy of the empirical state distribution at time \(t\) |
+| \(\rho(\cdot,\cdot)\) | Pearson correlation (alternatively Spearman \(\rho_s\)) |
+
+---
+
+#### **Conjecture H1 — Entropy Arrow**
+
+> The global entropy of a closed information field never decreases;  
+> equivalently, its time derivative is non-negative:
+
+\[
+\boxed{\;
+  \frac{dH}{dt} \;\ge\; 0
+  \quad \text{for all } t \ge 0
+\;}
+\]
+
+If true, \(H(t)\) gives an intrinsic “arrow of time.”
+
+---
+
+#### **Conjecture H2 — Speed-of-Time Correlation**
+
+> When the system’s instantaneous information-flow speed \(|\Delta S_t|\)
+> becomes larger, the entropy is expected to be larger as well; i.e. the two
+> random variables are positively correlated:
+
+\[
+\boxed{\;
+  \rho\!\bigl(|\Delta S_t|,\; H(t)\bigr) \;>\; 0
+\;}
+\]
+
+*(If a monotonic but nonlinear relation is allowed, replace
+\(\rho\) with Spearman’s \(\rho_s\) or mutual information.)*
+
+
 ### Why Test Them Empirically?  
 *Neither* claim has rigorous proof; both are implicitly assumed in some  
 complex-systems literature.  Before investing effort in theoretical  
