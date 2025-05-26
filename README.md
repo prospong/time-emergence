@@ -21,39 +21,35 @@ static entropy and dynamical “flow of time” concepts.  They also echo
 folk intuitions (“more happening ⇒ time feels faster”) and some  
 popular-science accounts of the thermodynamic arrow.
 
-### Formal Statement of the Two Conjectures  
+## Formal Conjectures
 
 | Symbol | Meaning |
 |--------|---------|
-| `$X_t \in \mathbb{R}^{N\times D}$` | State matrix of all $N$ agents at step $t$ (each row length $D$) |
-| `$\lvert \Delta S_t \rvert = \lVert X_t - X_{t-1}\rVert_2$` | Mean L2-magnitude of the state change (“information-flow speed”) |
-| `$H(t)$` | Shannon entropy of the empirical state distribution at time $t$ |
+| `$X_t \in \mathbb{R}^{N\times D}$` | State matrix of all *N* agents at time *t* |
+| `$\lvert\Delta S_t\rvert = \lVert X_t - X_{t-1}\rVert_2$` | Mean L2-magnitude of state change (“information-flow speed”) |
+| `$H(t)$` | Shannon entropy of the empirical state distribution |
 | `$\rho(\cdot,\cdot)$` | Pearson correlation (or Spearman $\rho_s$) |
 
----
+### Conjecture H1 – *Information-Emergence-of-Time (IETC)*  
 
-#### Conjecture H1 – *Entropy Arrow*  
+> The global entropy of a closed information field never decreases.
 
-> The global entropy of a closed information field never decreases;  
-> time acts as a one-way arrow.
+\[
+\frac{dH}{dt} \;\ge\; 0 \qquad(\forall\, t\ge0)
+\]
 
-$$
-\frac{dH}{dt} \;\ge\; 0 \qquad (\forall\, t \ge 0)
-$$
+### Conjecture H2 – *Multidimensional Information–Time Perception (MITPC)*  
 
----
+> A larger instantaneous information-flow speed implies a larger entropy.
 
-#### Conjecture H2 – *Speed-of-Time Correlation*  
-
-> A larger instantaneous information-flow speed implies a larger entropy;  
-> the two variables are positively correlated.
-
-$$
+\[
 \rho\!\bigl(\lvert\Delta S_t\rvert,\; H(t)\bigr) \;>\; 0
-$$
+\]
 
 *(If one only expects a monotone—rather than linear—relation,  
 replace $\rho$ with Spearman’s $\rho_s$ or use mutual information.)*
+
+---
 
 
 ### Why Test Them Empirically?  
