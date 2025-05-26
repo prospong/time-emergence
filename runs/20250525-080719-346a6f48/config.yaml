@@ -1,0 +1,14 @@
+num_agents: 100
+dims: 3
+steps: 500
+seed: 42
+A: 1.0
+omega: 0.05
+phase: null
+sigma: 0.1
+bins: 30
+graph_type: watts_strogatz
+k_neighbors: 6
+rewiring_p: 0.1
+attn_temperature: 0.5
+attn_scale: 0.2
