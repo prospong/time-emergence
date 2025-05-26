@@ -30,24 +30,77 @@ popular-science accounts of the thermodynamic arrow.
 | `$H(t)$` | Shannon entropy of the empirical state distribution |
 | `$\rho(\cdot,\cdot)$` | Pearson correlation (or Spearman $\rho_s$) |
 
-### Conjecture H1 – *Information-Emergence-of-Time (IETC)*  
+### Conjecture 1 – *Information-Emergence-of-Time Conjecture (IETC)*  
 
-> The global entropy of a closed information field never decreases.
+> **Plain idea:**  
+> If an information field evolves by probabilistic state transitions, the
+> *emergent time quantity*—defined via Shannon entropy—should never
+> decrease; it should rise (or at least stay flat) as the state sequence
+> grows.
 
+**Formal notation**
+
+* Let the information field be a finite set of states  
+  \[
+     \mathcal I = \{\, i_1,i_2,\dots \,\}.
+  \]
+* Let  
+  \[
+    f:\mathcal I \times \mathcal I \;\longrightarrow\;[0,1]
+  \]
+  be the state–transition kernel
+  (the probability of jumping from state \(i\) to state \(j\)).
+* Consider a trajectory (state sequence)
+  \[
+    S = (i_1, i_2, \dots, i_n), \qquad i_k \in \mathcal I .
+  \]
+* Define the **emergent-time functional**
+  \[
+    T(S) \;=\; H(S)\;-\;H(i_1),
+  \]
+  where \(H(\cdot)\) is Shannon entropy  
+  \( H(X) \;=\; -\sum_{x\in X} p(x)\,\log p(x)\).
+
+**IETC** claims that  
 \[
-\frac{dH}{dt} \;\ge\; 0 \qquad(\forall\, t\ge0)
+    n \longmapsto T(S)
 \]
+is **non-decreasing** (or at least non-negative/constant).  
+If that holds, we say the sequence exhibits an “emergent time
+phenomenon.”
 
-### Conjecture H2 – *Multidimensional Information–Time Perception (MITPC)*  
+---
 
-> A larger instantaneous information-flow speed implies a larger entropy.
+### Conjecture 2 – *Multidimensional-Information–Time-Perception Conjecture (MITPC)*  
 
-\[
-\rho\!\bigl(\lvert\Delta S_t\rvert,\; H(t)\bigr) \;>\; 0
-\]
+> **Plain idea:**  
+> In a high-dimensional information space, the local *intensity* of
+> information flow determines the rate at which an observer perceives the
+> passage of linear time.
 
-*(If one only expects a monotone—rather than linear—relation,  
-replace $\rho$ with Spearman’s $\rho_s$ or use mutual information.)*
+**Formal notation**
+
+* Consider a \(D\)-dimensional information space
+  \[
+    \mathcal I^{(D)} \;=\; \bigl\{\, (x_1,x_2,\dots,x_D)\in\mathbb R^D
+    \;\big\vert\; D \ge 3 \bigr\}.
+  \]
+* Every information state \(\mathbf x\in\mathcal I^{(D)}\) can interact
+  with others through the transition field \(f(\mathbf x,t)\).
+* Let
+  \[
+    g:\mathcal I^{(D)} \;\longrightarrow\; \mathbb T
+  \]
+  be a mapping from the high-dimensional state to a **1-D perceived
+  timeline** \(\mathbb T\).
+* MITPC hypothesises
+  \[
+    \frac{d}{dt}\,g(\mathbf x(t))
+    \;\;\propto\;\;
+    \bigl\lVert \nabla_{\mathbf x} f(\mathbf x,t) \bigr\rVert ,
+  \]
+  i.e.\ the *perceived* time rate is proportional to the norm of the
+  information-flow gradient in the \(D\)-space.
 
 ---
 
