@@ -39,8 +39,8 @@ We discovered that information entropy in GNN layers converges to stable interva
 
 ```bash
 # Clone the repository
-git clone https://github.com/prospong/time-emergence.git
-cd time-emergence
+git clone https://github.com/prospong/esr-gnn.git
+cd esr-gnn
 
 # Create conda environment
 conda create -n esr python=3.8
@@ -242,7 +242,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Zhigang Tian** - zt62@student.london.ac.uk
 
-**Project Link**: [https://github.com/prospong/time-emergence](https://github.com/prospong/esr-gnn)
+**Project Link**: [https://github.com/prospong/esr-gnn](https://github.com/prospong/esr-gnn)
 
 ---
 
