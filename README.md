@@ -242,7 +242,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Zhigang Tian** - zt62@student.london.ac.uk
 
-**Project Link**: [https://github.com/prospong/time-emergence](https://github.com/prospong/time-emergence)
+**Project Link**: [https://github.com/prospong/time-emergence](https://github.com/prospong/esr-gnn)
 
 ---
 
